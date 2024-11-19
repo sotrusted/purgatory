@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}Purgatory Comics Press{% endblock %}
+
+{% block content %}
+<div class="header">
+    <img class="logo" src="{% static 'logo1.png' %}" alt="Purgatory Comics Press">
+</div>
+
+<!-- Description Section -->
+<div class="description-box">
+    <p>
+        Welcome to Purgatory, where we love comics and hate cops.<br>
+        Purgatory Comics Press is a comics publisher based largely on the East Coast. 
+        We are a community of anti-fascist, artist-owned global comics and related media in a variety of genres. 
+        Purgatory is committed to PACBI.<br>
+        Purgatory Comics Press, LLC is owned by Lars Allen.
+    </p>
+</div>
+
+<!-- Preview of E-commerce Items -->
+<div class="ecom-preview">
+    <h2>Shop Our Collection</h2>
+    <div class="items">
+        {% for item in merchandise|slice:":3" %}
+            <div class="item">
+                <img src="{{ item.image.url }}" alt="{{ item.title }}">
+                <h3>{{ item.title }}</h3>
+                <p>${{ item.price }}</p>
+            </div>
+        {% endfor %}
+    </div>
+    <a href="{% url 'shop' %}" class="link-button">Visit the Shop</a>
+</div>
+
+<!-- Navigation Links -->
+<div class="nav-links">
+    <a href="{% url 'about' %}" class="link-button">About Us</a>
+    <a href="{% url 'contact' %}" class="link-button">Contact Us</a>
+</div>
+{% endblock %}

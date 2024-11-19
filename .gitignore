@@ -1,0 +1,8 @@
+.DS_Store
+.env
+*.pyc
+/.pcp/
+/staticfiles/
+db.sqlite3
+*.sqlite3
+__pycache__/

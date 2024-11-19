@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %}About Purgatory Comics Press{% endblock %}
+
+{% block content %}
+<div class="about-container">
+    <!-- PCP Ethos Section -->
+    <section class="ethos">
+        <h2>Why Purgatory?</h2>
+        <p>
+            Purgatory Comics Press is committed to building a community of anti-fascist, artist-owned comics and related media.
+            Inspired by Dante’s *Purgatorio*, we use the power of comics to embody experiences beyond the individual and
+            challenge Western claims to truth. Comics are our medium for moving readers through raw, imaginative storytelling.
+        </p>
+    </section>
+
+    <!-- Team Profiles Section -->
+    <section class="team">
+        <h2>Meet the Team</h2>
+        <div class="team-members">
+            {% for member in team_members %}
+                <div class="team-member">
+                    <img src="{{ member.image.url }}" alt="{{ member.name }}" class="team-photo">
+                    <h3>{{ member.name }}</h3>
+                    <p class="role">{{ member.role }}</p>
+                    <p>{{ member.bio }}</p>
+                    {% if member.website %}
+                        <a href="{{ member.website }}" target="_blank" class="link-button">Learn More About {{ member.name }}</a>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <!-- Distribution Section -->
+    <section class="distribution">
+        <h2>Wholesale & Distribution</h2>
+        <p>
+            For wholesale distribution options (stores, librarians, educators, educational institutions), please email us at 
+            <a href="mailto:distribution@purgatorycomicspress.com">distribution@purgatorycomicspress.com</a>.
+        </p>
+    </section>
+</div>
+{% endblock %}
